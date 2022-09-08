@@ -1,0 +1,14 @@
+<div *ngIf="! logged">
+	<h2>Fake autentification</h2>
+	<form class="d-flex w-75" (ngSubmit)="onSubmit()">
+		<input  class="form-control" type="text" name="log" [(ngModel)]="log"/>
+		<input class="form-control" type="password" name="pass" [(ngModel)]="pass"/>
+		<button type="submit" class="btn btn-primary w-75">Se connecter</button>
+	</form>
+</div>
+<div *ngIf="logged">
+	<form class="d-flex w-75" (ngSubmit)="onSubmit()">
+		<label class="w-50">{{log}}</label>
+		<button type="submit" class="btn btn-primary w-50">Se déconnecter</button>
+	</form>
+</div>

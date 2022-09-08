@@ -1,0 +1,10 @@
+<ul>
+	<li *ngFor="let r of races;trackByRaces">
+		<p>{{r.date | date : "dd/MM/yyyy"}} : {{r.location | raceLocation }}</p>
+		<ul>
+			<li *ngFor="let p of r.ponies;">
+				<pony [pony]="p"></pony>
+			<li>
+		</ul>
+	</li>
+</ul>
