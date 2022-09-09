@@ -8,10 +8,12 @@ import { PoniesComponent } from './components/ponies/ponies.component';
 import { RacesComponent } from './components/races/races.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { AddPonyReactiveComponent } from './components/add-pony-reactive/add-pony-reactive.component';
+import { AddPonyComponent } from './components/add-pony/add-pony.component';
 
 const routes: Routes = [
   { path: '', component: FakeAuthFormComponent },
-  { path: 'add-pony', component: AddPonyReactiveComponent },
+  { path: 'add-pony-reactive', component: AddPonyReactiveComponent },
+  { path: 'add-pony', component: AddPonyComponent, canActivate: [AuthGuardService]},
   { path: 'add-race', component: AddRaceComponent },
   { path: 'pony/:id', component: PonyComponent },
   { path: 'races', component: RacesComponent },

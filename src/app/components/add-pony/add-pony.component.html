@@ -1,35 +1,49 @@
-<form (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="name" class="form-label">Nom</label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      class="form-control"
-      [(ngModel)]="newPony.name"
-    />
-  </div>
-  <div class="form-group">
-    <label class="form-label">Age</label>
-    <input
-      type="text"
-      id="age"
-      name="age"
-      class="form-control"
-      [(ngModel)]="newPony.age"
-    />
-  </div>
-  <div class="form-group">
-    <label class="form-label">Couleur</label>
-    <input
-      type="text"
-      id="couleur"
-      name="couleur"
-      class="form-control"
-      [(ngModel)]="newPony.color"
-    />
-  </div>
-  <div class="col-12">
-    <button class="btn btn-primary" type="submit">Ajouter</button>
-  </div>
-</form>
+<div class="container">
+  <h2 *ngIf="!update" class="text-center" style="margin: 50px">
+    Ajouter un poney
+  </h2>
+  <h2 *ngIf="update" class="text-center" style="margin: 50px">
+    Modifier un poney
+  </h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name" class="form-label">Nom</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="form-control"
+        [(ngModel)]="pony.name"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Age</label>
+      <input
+        type="text"
+        id="age"
+        name="age"
+        class="form-control"
+        [(ngModel)]="pony.age"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Couleur</label>
+      <input
+        type="text"
+        id="couleur"
+        name="couleur"
+        class="form-control"
+        [(ngModel)]="pony.color"
+      />
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit" *ngIf="!update">
+        Ajouter
+      </button>
+      <button class="btn btn-primary" type="submit" *ngIf="update">
+        Modifier
+      </button>
+    </div>
+  </form>
+</div>
