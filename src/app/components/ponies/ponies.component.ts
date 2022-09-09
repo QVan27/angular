@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Pony } from '../../pony';
-import { PonyService } from '../../services/pony/pony.service';
+import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Pony } from 'src/app/pony';
+import { PonyService } from 'src/app/services/pony/pony.service';
 
 @Component({
   selector: 'ponies',
@@ -10,8 +10,8 @@ import { PonyService } from '../../services/pony/pony.service';
 export class PoniesComponent implements OnInit {
   ponies: Pony[] = [];
 
-  constructor(private ponyService: PonyService) {
-    this.ponyService.getAll().subscribe((p) => {
+  constructor(private service: PonyService) {
+    this.service.getAll().subscribe((p) => {
       this.ponies = p;
     });
   }

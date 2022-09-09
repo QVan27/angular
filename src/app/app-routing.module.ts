@@ -11,15 +11,32 @@ import { AddPonyReactiveComponent } from './components/add-pony-reactive/add-pon
 import { AddPonyComponent } from './components/add-pony/add-pony.component';
 
 const routes: Routes = [
-  { path: '', component: FakeAuthFormComponent },
+  // Route de base (arrivée sur le site)
+  { path: '', component: PoniesComponent },
+  // Route vers un component particulier
   { path: 'add-pony-reactive', component: AddPonyReactiveComponent },
-  { path: 'add-pony', component: AddPonyComponent, canActivate: [AuthGuardService]},
+  {
+    path: 'add-pony',
+    component: AddPonyComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'update-pony/:id',
+    component: AddPonyComponent,
+    canActivate: [AuthGuardService],
+  },
   { path: 'add-race', component: AddRaceComponent },
-  { path: 'pony/:id', component: PonyComponent },
+  {
+    path: 'update-race/:id_race',
+    component: AddRaceComponent,
+    canActivate: [AuthGuardService],
+  },
   { path: 'races', component: RacesComponent },
-  { path: 'ponies', component: PoniesComponent, canActivate: [AuthGuardService] },
-  { path: '**', pathMatch: 'full', 
-  component: PagenotfoundComponent },
+  { path: 'auth', component: FakeAuthFormComponent },
+  // Route avec un paramètre
+  { path: 'pony/:id', component: PonyComponent },
+  // Route redirigeant vers l'accueil/404 en cas de mauvais url
+  { path: '**', component: PagenotfoundComponent },
 ];
 
 @NgModule({

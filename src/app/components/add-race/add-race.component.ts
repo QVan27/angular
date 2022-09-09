@@ -1,11 +1,8 @@
-import { RaceService } from './../../services/race/race.service';
 import { Component, OnInit } from '@angular/core';
-import { Race } from '../../race';
-import { RACES } from '../../mock/mock-races';
-import { Pony } from '../../pony';
-import { PONIES } from '../../mock/mock-ponies';
-
-import { FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { PONIES } from 'src/app/mock/mock-ponies';
+import { RACES } from 'src/app/mock/mock-races';
+import { Race } from 'src/app/race';
 
 @Component({
   selector: 'add-race',
@@ -16,18 +13,9 @@ export class AddRaceComponent implements OnInit {
   model: Race = new Race();
   poniesBool = Array<boolean>();
   allPonies = PONIES;
+  update: boolean = false;
 
-  newRace: Race = new Race();
-
-  raceAdded: boolean = false;
-
-  raceForm = this.fb.group({
-    location: ['entrer le nom', Validators.required],
-    date: [new Date(), Validators.required],
-    
-  });
-
-  constructor(private fb: FormBuilder, private racesService: RaceService) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     for (let p of this.allPonies) {

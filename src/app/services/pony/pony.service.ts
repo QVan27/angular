@@ -7,7 +7,7 @@ import { Pony } from '../../pony';
   providedIn: 'root',
 })
 export class PonyService {
-  url = 'https://ludivinecrepin.fr/api/';
+  url: string = 'https://ludivinecrepin.fr/api/';
 
   httpOption = {
     headers: new HttpHeaders({
@@ -29,6 +29,7 @@ export class PonyService {
       .subscribe();
   }
 
+  // Get Pony by ID
   getPony(id: number): Observable<Pony> {
     return this.http.get<Pony>(
       this.url + 'pony-get-id.php/' + id,
@@ -36,6 +37,7 @@ export class PonyService {
     );
   }
 
+  // Update Pony by ID
   updatePony(p: Pony): void {
     this.http.put(this.url + 'pony-update.php', p, this.httpOption).subscribe();
   }

@@ -1,7 +1,14 @@
-<h2> Poneys en vie </h2>
+<h2>Poneys en vie</h2>
 <ul>
-	<li *ngFor="let p of ponies; let i = index;trackByPonies">
-		{{i}} - <pony [pony]="p"></pony>
-	</li>
+  <li *ngFor="let p of ponies; let i = index">
+    {{ i }} - <pony [pony]="p"></pony>
+    <button
+      type="button"
+      class="btn-primary btn"
+      routerLink="update-pony/{{ p.id }}"
+    >
+      Modifier {{ p.name | titlecase }}
+    </button>
+  </li>
 </ul>
-<hr>
+<hr />

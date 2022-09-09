@@ -3,10 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Pony } from 'src/app/pony';
 import { PonyService } from 'src/app/services/pony/pony.service';
 
-
-
 @Component({
-  selector: 'add-pony',
+  selector: 'app-add-pony',
   templateUrl: './add-pony.component.html',
   styleUrls: ['./add-pony.component.css'],
 })
@@ -23,7 +21,6 @@ export class AddPonyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // call on each refresh
     this.route.params.subscribe((p) => {
       if (p['id'] !== undefined) {
         this.update = true;
