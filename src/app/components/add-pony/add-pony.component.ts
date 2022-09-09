@@ -32,7 +32,7 @@ export class AddPonyComponent implements OnInit {
       }
     });
   }
-
+ 
   onSubmit(): void {
     this.update
       ? this.PonyS.updatePony(this.pony)

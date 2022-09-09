@@ -1,3 +1,4 @@
+import { RaceService } from './../../services/race/race.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PONIES } from 'src/app/mock/mock-ponies';
@@ -15,7 +16,11 @@ export class AddRaceComponent implements OnInit {
   allPonies = PONIES;
   update: boolean = false;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private raceS: RaceService
+  ) {}
 
   ngOnInit(): void {
     for (let p of this.allPonies) {

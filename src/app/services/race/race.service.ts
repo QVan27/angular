@@ -21,11 +21,22 @@ export class RaceService {
   }
 
   // Créer une méthode post pour ajouter un poney
-  addRace(race: Race): Observable<Race> {
-    return this.http.post<Race>(
-      this.url + 'race-add.php',
-      race,
+  addRace(race: Race): void {
+    this.http
+      .post(this.url + 'race-add.php', race, this.httpOption)
+      .subscribe();
+  }
+
+  // Get Race by ID
+  getRace(id: number): Observable<Race> {
+    return this.http.get<Race>(
+      this.url + 'race-get-id.php/' + id,
       this.httpOption
     );
+  }
+
+  // Update Race by ID
+  updateRace(p: Race): void {
+    this.http.put(this.url + 'race-update.php', p, this.httpOption).subscribe();
   }
 }

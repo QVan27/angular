@@ -27,7 +27,7 @@ const routes: Routes = [
   },
   { path: 'add-race', component: AddRaceComponent },
   {
-    path: 'update-race/:id_race',
+    path: 'update-race/:id',
     component: AddRaceComponent,
     canActivate: [AuthGuardService],
   },

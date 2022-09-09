@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let r of races; trackByRaces">
+  <li *ngFor="let r of races; let i = index">
     <p>{{ r.date | date: "dd/MM/yyyy" }} : {{ r.location | raceLocation }}</p>
     <ul>
       <li *ngFor="let p of r.ponies">
@@ -9,7 +9,7 @@
     <button
       type="button"
       class="btn-primary btn"
-      routerLink="update-race/{{ r.id_race }}"
+      routerLink="update-race/{{ r.id }}"
     >
       Modifier {{ r.location | titlecase }}
     </button>
